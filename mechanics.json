@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "values": [
+    {
+      "name": "Entrées ET et NON-ET",
+      "group": "portes",
+      "value": 4,
+      "unit": "broches",
+      "source": "VariableConnectorBaseBlock.initInConnectors @ 0x0019 (profil à quatre entrées)"
+    },
+    {
+      "name": "ET et NON-ET sans fil",
+      "group": "portes",
+      "value": true,
+      "source": "AndBlock.getDefaultInConnectorValue @ 0x0000"
+    },
+    {
+      "name": "Entrées OU et NON-OU",
+      "group": "portes",
+      "value": 4,
+      "unit": "broches",
+      "source": "VariableConnectorBaseBlock.initInConnectors @ 0x0019 (profil à quatre entrées)"
+    },
+    {
+      "name": "OU et NON-OU sans fil",
+      "group": "portes",
+      "value": false,
+      "source": "OrBlock.getDefaultInConnectorValue @ 0x0000"
+    },
+    {
+      "name": "Entrée NON sans fil",
+      "group": "portes",
+      "value": true,
+      "source": "NotBlock.initInConnectors @ 0x0012"
+    },
+    {
+      "name": "Entrées OU exclusif",
+      "group": "portes",
+      "value": 2,
+      "unit": "broches",
+      "source": "XorBlock.initInConnectors @ 0x0001"
+    },
+    {
+      "name": "ET",
+      "group": "portes",
+      "value": "toutes les entrées sont à 1",
+      "source": "AndBlock.calculateBinaryValue @ 0x0019"
+    },
+    {
+      "name": "OU",
+      "group": "portes",
+      "value": "au moins une entrée à 1",
+      "source": "OrBlock.calculateBinaryValue @ 0x0019"
+    },
+    {
+      "name": "NON",
+      "group": "portes",
+      "value": "inverse l’entrée",
+      "source": "NotBlock.calculateBinaryValue @ 0x000c"
+    },
+    {
+      "name": "NON-ET",
+      "group": "portes",
+      "value": "inverse le résultat ET",
+      "source": "NandBlock.calculateBinaryValue @ 0x0001"
+    },
+    {
+      "name": "NON-OU",
+      "group": "portes",
+      "value": "inverse le résultat OU",
+      "source": "NorBlock.calculateBinaryValue @ 0x0001"
+    },
+    {
+      "name": "OU exclusif",
+      "group": "portes",
+      "value": "les deux entrées diffèrent",
+      "source": "XorBlock.calculateBinaryValue @ 0x0019"
+    },
+    {
+      "name": "Entrée binaire au départ",
+      "group": "simulation",
+      "value": false,
+      "source": "InputBlock.calculateBinaryValue @ 0x0029"
+    },
+    {
+      "name": "Sortie binaire",
+      "group": "simulation",
+      "value": "reproduit l’entrée câblée",
+      "source": "OutputBlock.endCalculation @ 0x0009"
+    },
+    {
+      "name": "Retard à la montée",
+      "group": "temporisation",
+      "value": "activation après maintien du déclencheur pendant T, extinction immédiate au relâchement",
+      "source": "OnDelayParameter.calculateValue @ 0x0000, 0x0022, 0x0046; Timer.isFinished @ 0x0012"
+    },
+    {
+      "name": "Retard à la descente",
+      "group": "temporisation",
+      "value": "activation immédiate, maintien pendant T après la descente, remise à zéro prioritaire",
+      "source": "OffDelayParameter.calculateValue @ 0x0000, 0x002d, 0x0051; Timer.isFinished @ 0x0012"
+    },
+    {
+      "name": "Durée initiale des temporisations",
+      "group": "temporisation",
+      "value": 0,
+      "unit": "s",
+      "source": "TimeProtectionParameter.getTimer @ 0x0008; Timer.<init>() @ 0x0009"
+    },
+    {
+      "name": "Relais mémorisé",
+      "group": "simulation",
+      "value": "R met à zéro, S met à un, sinon l’état est conservé",
+      "source": "LatchingRelayParameter.getValue @ 0x0000-0x002b"
+    },
+    {
+      "name": "Compteur binaire",
+      "group": "compteur",
+      "value": "un pas sur un front montant de Cnt, Dir 0 monte, Dir 1 descend, R remet à zéro",
+      "source": "CounterParameter.calculateValueLimes @ 0x0000-0x0037; CounterParameter.updateCount @ 0x0000-0x0041"
+    },
+    {
+      "name": "Sortie du compteur à seuil simple",
+      "group": "compteur",
+      "value": "le compte atteint ou dépasse le seuil, sauf pendant la remise à zéro",
+      "source": "CounterParameter.calculateValueLimes @ 0x0016-0x0037"
+    },
+    {
+      "name": "Minimum du compteur",
+      "group": "compteur",
+      "value": 0,
+      "unit": "impulsions",
+      "source": "CounterParameter.<init>(Block) @ 0x000a"
+    },
+    {
+      "name": "Maximum du compteur",
+      "group": "compteur",
+      "value": 99999,
+      "unit": "impulsions",
+      "source": "CounterParameter.<init>(Block) @ 0x000f"
+    },
+    {
+      "name": "Seuil initial du compteur",
+      "group": "compteur",
+      "value": 3,
+      "unit": "impulsions",
+      "estimated": true
+    },
+    {
+      "name": "Cadence de rafraîchissement visée",
+      "group": "simulation",
+      "value": 20,
+      "unit": "ms",
+      "estimated": true
+    },
+    {
+      "name": "Grille visible au départ",
+      "group": "éditeur",
+      "value": false,
+      "source": "Application.ini, DE.siemens.ad.pdraw.app.LogoComfort.grid.visibility"
+    },
+    {
+      "name": "Démarrage immédiat à l’entrée en simulation",
+      "group": "simulation",
+      "value": true,
+      "source": "Application.ini, simulation.startAutomatically"
+    }
+  ]
+}
